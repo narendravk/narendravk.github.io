@@ -1,0 +1,31 @@
+body{
+    background-color: black;
+    text-align: center;
+    color: greenyellow;
+    align-items: center;
+}
+
+#heading{
+    font-size: 90px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#timer{
+    font-size: 90px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.box {
+    border: 5px solid greenyellow;
+    border-radius: 50px;
+}
+
+#spinner{
+    display: none;
+    margin: auto;
+    padding: 0px;
+}
+
+hr{
+    border-color: greenyellow;
+}

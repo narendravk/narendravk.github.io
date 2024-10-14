@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Countdown</title>
+    <link rel="stylesheet" href="assets/css/countdown.css">
+</head>
+<body>
+    <div class="box">
+    <h1 id="heading">Create Your Countdown</h1>
+    <h1 id="timer">⌛</h1>
+    <img id="spinner" src="assets/img/spinner.gif" height="128px" alt="countdown spinner">
+    </div>
+    <div id="form-control">
+        <hr>
+        <input id="eventTitle" type="text" minlength="5" maxlength="30" placeholder="Event Title" name="eventTitle">
+        <input id="eventDate" type="datetime-local" placeholder="Select the date" name="eventDate">
+        <button onclick="createCountdown()" id="getCountdown">Create Countdown</button>
+        <p>Press F11 for fullscreen.</p>
+        <footer>
+            <p>Created by: Narendra Kashikar</p>
+            <p>© 2024</p>
+        </footer>
+    </div>
+    <script src="assets/js/countdown.js"></script>
+</body>
+</html>
