@@ -1,0 +1,67 @@
+//To Do App
+//Created by Narendra Kashikar. ©2024
+function removeItem(i){
+    let list1= JSON.parse(localStorage.getItem('toDoList'));
+    list1.splice(i,1);
+    localStorage.removeItem('toDoList');
+    localStorage.setItem('toDoList',JSON.stringify(list1));
+    location.reload();
+}
+ 
+function deleteAll(){
+    if(confirm('Are you sure?')){
+    localStorage.removeItem('toDoList');
+    location.reload();
+}
+}
+
+if (localStorage.getItem('toDoList') !== null){
+    let toDoArray = JSON.parse(localStorage.getItem('toDoList'));
+    if (toDoArray.length > 0){
+        var deleteAll = document.getElementById('deleteAll');
+        deleteAll.style.display = 'block';
+        deleteAll.style.margin = 'auto';
+    }
+    for (let index = 0; index < toDoArray.length; index++) {
+        var trow = document.createElement("tr");
+        var td1 = document.createElement("td");
+        td1.innerHTML = index+1;
+        var td2 = document.createElement("td");
+        td2.innerHTML = toDoArray[index].task;
+        var td3 = document.createElement("td");
+        td3.innerHTML = toDoArray[index].deadline;
+        var td4 = document.createElement("td");
+        td4.innerHTML = toDoArray[index].priority;
+        var btn1 = document.createElement('button');
+        btn1.setAttribute('class','btn btn-light btn-sm');
+        btn1.setAttribute('onclick',`removeItem(${index})`);
+        btn1.innerHTML = '✅'
+        var td5 = document.createElement('td');
+        td5.appendChild(btn1);
+        trow.appendChild(td1);
+        trow.appendChild(td2);
+        trow.appendChild(td3);
+        trow.appendChild(td4);
+        trow.appendChild(td5);
+        document.getElementById('list-body').appendChild(trow);
+    }};
+function createNewTask(){
+    var task = document.getElementById('task').value ;
+    var deadline = document.getElementById('deadline').value ;
+    var priority = document.getElementById('priority').value ;
+    if (localStorage.getItem('toDoList') !== null){
+        let toDoList = localStorage.getItem('toDoList');
+        let itemList = JSON.parse(toDoList);
+        itemList.push({"task":task,"deadline":deadline,"priority":priority});
+        localStorage.removeItem('toDoList');
+        localStorage.setItem('toDoList',JSON.stringify(itemList));
+        console.log(itemList);
+        location.reload();
+    } else{
+        var listObj = [{"task":task,"deadline":deadline,"priority":priority}];
+        localStorage.setItem('toDoList',JSON.stringify(listObj));
+        console.log(listObj);
+        location.reload();
+    }
+
+}
