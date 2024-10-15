@@ -8,7 +8,7 @@ function removeItem(i){
     location.reload();
 }
  
-function deleteAll(){
+function deleteAllItems(){
     if(confirm('Are you sure?')){
     localStorage.removeItem('toDoList');
     location.reload();
