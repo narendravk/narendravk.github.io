@@ -114,3 +114,8 @@ function createNewTask(){
 }else{
     alert("⚠️Please enter task details first..");
 }}
+
+function viewInstallToast(){
+const myToast = new bootstrap.Toast('.toast');
+myToast.show();
+}
