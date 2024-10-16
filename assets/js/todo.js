@@ -25,7 +25,7 @@ function removeItem(i){
 }
  
 function deleteAllItems(){
-    if(confirm('⚠️Do you really want to delete all tasks in the list?⚠️?')){
+    if(confirm('⚠️Do you really want to delete all tasks in the list??')){
     localStorage.removeItem('toDoList');
     location.reload();
 }
@@ -37,7 +37,7 @@ function changeBG(){
         localStorage.setItem('appBG',appBG.value);
         location.reload();
     }else{
-        alert("⚠️Please eneter a non empty and valid value..⚠️");
+        alert("⚠️Please eneter a non empty and valid value..");
     }
 }
 
@@ -47,7 +47,7 @@ function changeUserName(){
         localStorage.setItem('userName',username.value);
         location.reload();
     }else{
-        alert("⚠️Please eneter a non empty and valid value..⚠️");
+        alert("⚠️Please eneter a non empty and valid value..");
     }
 }
 
@@ -57,7 +57,7 @@ function changeUserDP(){
         localStorage.setItem('userDP',profilePic.value);
         location.reload();
     }else{
-        alert("⚠️Please eneter a non empty and valid value..⚠️");
+        alert("⚠️Please eneter a non empty and valid value..");
     }
 }
 
@@ -79,7 +79,7 @@ if (localStorage.getItem('toDoList') !== null){
         var td4 = document.createElement("td");
         td4.innerHTML = toDoArray[index].priority;
         var btn1 = document.createElement('button');
-        btn1.setAttribute('class','btn btn-dark btn-sm');
+        btn1.setAttribute('class','btn');
         btn1.setAttribute('onclick',`removeItem(${index})`);
         btn1.innerHTML = '✅'
         var td5 = document.createElement('td');
@@ -93,21 +93,24 @@ if (localStorage.getItem('toDoList') !== null){
     }};
 function createNewTask(){
     var task = document.getElementById('task').value ;
-    var deadline = document.getElementById('deadline').value ;
-    var priority = document.getElementById('priority').value ;
-    if (localStorage.getItem('toDoList') !== null){
-        let toDoList = localStorage.getItem('toDoList');
-        let itemList = JSON.parse(toDoList);
-        itemList.push({"task":task,"deadline":deadline,"priority":priority});
-        localStorage.removeItem('toDoList');
-        localStorage.setItem('toDoList',JSON.stringify(itemList));
-        console.log(itemList);
-        location.reload();
-    } else{
-        var listObj = [{"task":task,"deadline":deadline,"priority":priority}];
-        localStorage.setItem('toDoList',JSON.stringify(listObj));
-        console.log(listObj);
-        location.reload();
-    }
+        if(task !== ""){
+        var deadline = document.getElementById('deadline').value ;
+        var priority = document.getElementById('priority').value ;
+        if (localStorage.getItem('toDoList') !== null){
+            let toDoList = localStorage.getItem('toDoList');
+            let itemList = JSON.parse(toDoList);
+            itemList.push({"task":task,"deadline":deadline,"priority":priority});
+            localStorage.removeItem('toDoList');
+            localStorage.setItem('toDoList',JSON.stringify(itemList));
+            console.log(itemList);
+            location.reload();
+        } else{
+            var listObj = [{"task":task,"deadline":deadline,"priority":priority}];
+            localStorage.setItem('toDoList',JSON.stringify(listObj));
+            console.log(listObj);
+            location.reload();
+        }
 
-}
+}else{
+    alert("⚠️Please enter task details first..");
+}}
