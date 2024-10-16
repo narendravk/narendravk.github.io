@@ -1,5 +1,21 @@
 //To Do App
 //Created by Narendra Kashikar. ©2024
+
+if(localStorage.getItem('appBG')!==null){
+    let pagebody = document.getElementById('body');
+    pagebody.style.backgroundImage = `url(${localStorage.getItem('appBG')})`;
+}
+
+if(localStorage.getItem('userName')!==null){
+    let nameplate = document.getElementById('username');
+    nameplate.innerHTML = localStorage.getItem('userName');
+}
+
+if(localStorage.getItem('userDP')!==null){
+    let dpFrame = document.getElementById('userimg');
+    dpFrame.setAttribute('src',localStorage.getItem('userDP'));
+}
+
 function removeItem(i){
     let list1= JSON.parse(localStorage.getItem('toDoList'));
     list1.splice(i,1);
@@ -9,10 +25,40 @@ function removeItem(i){
 }
  
 function deleteAllItems(){
-    if(confirm('Are you sure?')){
+    if(confirm('⚠️Do you really want to delete all tasks in the list?⚠️?')){
     localStorage.removeItem('toDoList');
     location.reload();
 }
+}
+
+function changeBG(){
+    var appBG = document.getElementById('bgURL');
+    if (bgURL !== ""){
+        localStorage.setItem('appBG',appBG.value);
+        location.reload();
+    }else{
+        alert("⚠️Please eneter a non empty and valid value..⚠️");
+    }
+}
+
+function changeUserName(){
+    var username = document.getElementById('changeusername');
+    if (username.value !== ""){
+        localStorage.setItem('userName',username.value);
+        location.reload();
+    }else{
+        alert("⚠️Please eneter a non empty and valid value..⚠️");
+    }
+}
+
+function changeUserDP(){
+    var profilePic = document.getElementById('profile');
+    if (profilePic.value !== ""){
+        localStorage.setItem('userDP',profilePic.value);
+        location.reload();
+    }else{
+        alert("⚠️Please eneter a non empty and valid value..⚠️");
+    }
 }
 
 if (localStorage.getItem('toDoList') !== null){
@@ -33,7 +79,7 @@ if (localStorage.getItem('toDoList') !== null){
         var td4 = document.createElement("td");
         td4.innerHTML = toDoArray[index].priority;
         var btn1 = document.createElement('button');
-        btn1.setAttribute('class','btn btn-light btn-sm');
+        btn1.setAttribute('class','btn btn-dark btn-sm');
         btn1.setAttribute('onclick',`removeItem(${index})`);
         btn1.innerHTML = '✅'
         var td5 = document.createElement('td');
