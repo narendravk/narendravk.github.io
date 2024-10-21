@@ -1,0 +1,80 @@
+.font-afcad {
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /*100 to 1000*/
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+  }
+
+.font-raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400 ;/*100 to 900 */
+    font-style: normal;
+  }
+  
+  .font-poppins {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .font-pt-sans {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+  .header-bg{
+    background-color: #E4E0E1;
+  }
+
+  .sidebar{
+    position: fixed;
+    top: 40px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 300px;
+    max-width: 300px;
+  }
+
+  .workspace{
+    padding-right:40px;
+    padding-left: 340px;
+    padding-top:80px;
+    padding-bottom: 40px;
+    border: black groove 2px;
+    margin: 10px;
+  }
+
+  #resume-print{
+    border: black solid 2px;
+        height:297mm;
+    width:210mm;
+    margin: 0px 100px 0px 100px;
+  }
+
+  @media print {
+    body{
+      visibility: hidden;
+      #resume-print{
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+      };
+      #resume-print::after{
+        content: none;
+      };
+      #resume-print::before{
+        content: none;
+      };
+    }
+  }

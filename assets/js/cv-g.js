@@ -52,12 +52,23 @@ function addEducation(event){
 function hideSidebar(){
     sidebar = document.getElementById('sidebar');
     workspace = document.getElementById('workspace');
-    if(workspace.classList.contains('col-8')){
+    if(sidebar.style.display!='none'){
     sidebar.style.display = 'none';
-    workspace.classList.remove('col-8');
-    
-}else{
-    sidebar.style.display = 'block';
-    workspace.classList.remove('col-12');
-    workspace.classList.add('col-8');
-}}
+    workspace.style.paddingLeft = '40px';
+    }else{
+        sidebar.style.display='block';
+        workspace.style.paddingLeft = '280px';
+    }
+}
+
+function updateFont(event){
+    workspsace = document.getElementById('workspace');
+    fontSelect = document.getElementById('font-select');
+    const options = fontSelect.options;
+    for(let i =0; i<options.length; i++){
+        if(workspace.classList.contains(options[i].value)){
+            workspace.classList.remove(options[i].value);
+        };
+    };
+    workspace.classList.add(event.target.value);
+}
