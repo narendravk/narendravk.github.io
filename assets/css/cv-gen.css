@@ -27,8 +27,12 @@
   }
   
 
-  .header-bg{
-    background-color: #E4E0E1;
+  .header-bg, #side-info{
+    background-color:#F5F5F5;
+    border-bottom: black solid 1px;
+  }
+  .header-bg p{
+    line-height: 1em;
   }
 
   .sidebar{
@@ -50,25 +54,30 @@
     padding-left: 340px;
     padding-top:80px;
     padding-bottom: 40px;
-    border: black groove 2px;
     margin: 10px;
   }
 
   #resume-print{
-    border: black solid 2px;
+    /* border: black solid 2px; */
         height:297mm;
     width:210mm;
     margin: 0px 100px 0px 100px;
+    
   }
 
   @media print {
     body{
-      visibility: hidden;
+      visibility: hidden;}
       #resume-print{
         visibility: visible;
         position: absolute;
         left: 0;
         top: 0;
+        margin: 20px 20px 20px 20px;  
+        break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        border: black solid 1px;
       };
       #resume-print::after{
         content: none;
@@ -76,5 +85,29 @@
       #resume-print::before{
         content: none;
       };
+      .flex-child{break-inside: avoid;
+      };
     }
+
+
+  #exp-div{
+    flex-wrap: wrap;
+  }
+
+
+  .flex-child{
+  flex-basis: 50%;
+  flex-grow:1;
+  font-size: 11pt;
+  /* max-height:min-content; */
+  }
+
+  #education-div{
+    font-size: 11pt;
+  }
+
+  #op-profile-summary{
+    border-bottom: black solid 1px;
+    font-size: 14pt;
+    margin:0px 40px;
   }

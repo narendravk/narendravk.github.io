@@ -49,6 +49,31 @@ function addEducation(event){
     eduTbody.appendChild(newRow);
 }
 
+function addExperience(event){
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    var company = formData.get('company');
+    var from_dt = formData.get('from_dt');
+    var to_dt = formData.get('to_dt');
+    var desg = formData.get('designation');
+    var details = formData.get('role_jd');
+    var newCard = document.createElement('div'); // this is a node
+    var cardContent = `
+    <div class="card-header font-weight-bold">${company}</div>
+    <div class="card-text text-muted font-weight-italic">${from_dt} to ${to_dt}</div>
+    <div class="card-body"><h6 class="card-title">${desg}</h6>
+    <p class="card-text">${details}</p></div>
+    `;                            
+    newCard.innerHTML = cardContent;
+    newCard.classList.add('card');
+    newCard.classList.add('flex-child');
+    newCard.classList.add('text-start'); 
+    newCard.style.pageBreakInside = 'avoid';   
+    var expDiv = document.getElementById('exp-div');
+    expDiv.appendChild(newCard);
+}
+
+
 function hideSidebar(){
     sidebar = document.getElementById('sidebar');
     workspace = document.getElementById('workspace');
@@ -72,3 +97,8 @@ function updateFont(event){
     };
     workspace.classList.add(event.target.value);
 }
+
+function printResume()
+{
+    window.print();
+ }
