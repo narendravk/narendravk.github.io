@@ -75,7 +75,7 @@
                     <input class="form-control m-1" type="month" required placeholder="Year of Passing" id="passing" name="passing" title="Year of Passing">
                     <input class="form-control m-1" type="text" minlength="2" maxlength="20" placeholder="Degree and Subject" id="degree" name="degree">
                     <input class="form-control m-1" type="number" min="1" max="100" placeholder="Percentage / GPA" id="score" name="score">
-                    <input class="btn btn-sm btn-dark m-1" type="submit" label="Add">
+                    <input class="btn btn-sm btn-dark m-1" type="submit" value="Add">
                 </form>
               <hr>
                 <form onsubmit="addExperience(event)">
@@ -85,9 +85,35 @@
                     <input class="form-control m-1" type="date" required placeholder="To Date" id="to_dt" name="to_dt" title="Worked upto">
                     <input class="form-control m-1" type="text" minlength="3" maxlength="20" placeholder="Designation" id="designation" name="designation">
                     <textarea class="form-control m-1" type="text" minlength="10" maxlength="512" placeholder="Role & Responsibilities, use &lt;li&gt info... &lt/li&gt to create bullet points" id="role_jd" name="role_jd" rows="10"></textarea>
-                    <input class="btn btn-sm btn-dark m-1" type="submit" label="Add">
+                    <input class="btn btn-sm btn-dark m-1" type="submit" value="Add">
                 </form>
             <hr>
+                <form onsubmit="addSkill(event)">
+                    <label class="form-label">Add Skills</label>
+                    <input class="form-control m-1" type="text" required maxlength="25" minlength="3" id="skillName" placeholder="Skill" name="skillName" title="Skill details">
+                    <input class="form-control m-1" type="number" required min="1" max="100" step="1" id="skillLevel" name="skillLevel" title="Skill level from 1 to 100" placeholder="Skill level in 1 to 100">
+                    <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+                </form>
+            <hr>
+            <form onsubmit="addBullet(event,'hobby','hobbies')">
+                <label class="form-label">Add Hobbies / Interests</label>
+                <input class="form-control m-1" type="text" required maxlength="15" minlength="3" id="hobby" placeholder="hobby / Interest" name="hobby" title="Hobbiies / Interests">
+                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+            </form>
+            <hr>
+            <form onsubmit="addBullet(event,'lang','languages')">
+                <label class="form-label">Add Languages</label>
+                <input class="form-control m-1" type="text" required maxlength="10" minlength="3" id="lang" placeholder="Language Name" name="lang" title="Languages you know">
+                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+            </form>
+            <hr>
+            <form onsubmit="addBullet(event,'achi','achievements')">
+                <label class="form-label">Add Achievements</label>
+                <input class="form-control m-1" type="text" required maxlength="30" minlength="5" id="achi" placeholder="Achievement" name="achi" title="Your achievements">
+                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+            </form>
+            <hr>
+            <label class="form-label">Styling Options</label>    
             <select class="form-select m-1" title="Select Font Style" id="font-select" name="font-select" onchange="updateFont(event)">
                 <option values="" disabled selected>Font</option>
                 <option value="font-afcad">Afcad Flux</option>
@@ -120,18 +146,30 @@
                         </div>  
                 </div>
                 <div class="col-12 ms-3" id="summary">
-                    <h5 class="text-start">Profile Summary</h5>
+                    <h5 class="text-start mb-2">Profile Summary</h5>
                     <p class="text-start text-wrap" id="op-profile-summary"></p>
                 </div>
                 <div class="row mt-3 ms-1" id="info">
                     <div class="col-4" id="side-info">
                         <h6 class="text-start">Skills</h6>
+                        <div id="skillset">
+
+                        </div>
                         <hr>
                         <h6 class="text-start">Hobbies / Interests</h6>
+                        <div id="hobbies">
+
+                        </div>
                         <hr>
                         <h6 class="text-start">Languages</h6>
+                        <div id="languages">
+
+                        </div>
                         <hr>
                         <h6 class="text-start">Achievements</h6>
+                        <div id="achievements">
+
+                        </div>
                     </div>
                     <div class="col-8" id="main-info">
                         <h6 class="text-start">Education</h6>

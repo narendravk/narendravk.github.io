@@ -47,6 +47,7 @@
     overflow-y: scroll;
     width: 300px;
     max-width: 300px;
+    font-family:"Poppins", sans-serif;
   }
 
   .workspace{
@@ -87,6 +88,8 @@
       };
       .flex-child{break-inside: avoid;
       };
+      #achievements{break-inside: avoid;
+      }
     }
 
 
@@ -108,6 +111,6 @@
 
   #op-profile-summary{
     border-bottom: black solid 1px;
-    font-size: 14pt;
+    font-size: 12pt;
     margin:0px 40px;
   }

@@ -73,6 +73,34 @@ function addExperience(event){
     expDiv.appendChild(newCard);
 }
 
+function addSkill(event){
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    var skillName = formData.get('skillName');
+    var skillLevel = formData.get('skillLevel');
+    var newSkillDiv = document.createElement('div'); // this is a node
+    var skillDivContent = `
+    <li class="m-1">${skillName}</li>
+    <div class="progress" style="height:20px;">
+    <div class="progress-bar text-dark" role="progressbar" style="width: ${skillLevel}%" aria-valuenow="${skillLevel}" aria-valuemin="0" aria-valuemax="100"><strong>${skillLevel}%</strong></div>
+    </div>
+    `;                            
+    newSkillDiv.innerHTML = skillDivContent;      
+    var skillSetDiv = document.getElementById('skillset');
+    skillSetDiv.appendChild(newSkillDiv);
+}
+
+
+function addBullet(event,inputName,outputId){
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    var content = formData.get(`${inputName}`);
+    var newBullet = document.createElement('li'); // this is a node                      
+    newBullet.innerHTML = content;
+    newBullet.classList.add('m-1');     
+    var outputDiv = document.getElementById(`${outputId}`);
+    outputDiv.appendChild(newBullet);
+}
 
 function hideSidebar(){
     sidebar = document.getElementById('sidebar');
