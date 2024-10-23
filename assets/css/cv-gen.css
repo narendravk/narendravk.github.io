@@ -101,12 +101,12 @@
   .flex-child{
   flex-basis: 50%;
   flex-grow:1;
-  font-size: 11pt;
+  font-size: 10pt;
   /* max-height:min-content; */
   }
 
   #education-div{
-    font-size: 11pt;
+    font-size: 10pt;
   }
 
   #op-profile-summary{
