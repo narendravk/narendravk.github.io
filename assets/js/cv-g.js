@@ -47,6 +47,8 @@ function addEducation(event){
     newRow.innerHTML = rowContent;    
     var eduTbody = document.getElementById('eduTbody');
     eduTbody.appendChild(newRow);
+    var form = document.getElementById('eduForm');
+    form.reset();
 }
 
 function addExperience(event){
@@ -71,6 +73,8 @@ function addExperience(event){
     newCard.style.pageBreakInside = 'avoid';   
     var expDiv = document.getElementById('exp-div');
     expDiv.appendChild(newCard);
+    var form = document.getElementById('expForm');
+    form.reset();
 }
 
 function addSkill(event){
@@ -88,10 +92,12 @@ function addSkill(event){
     newSkillDiv.innerHTML = skillDivContent;      
     var skillSetDiv = document.getElementById('skillset');
     skillSetDiv.appendChild(newSkillDiv);
+    var form = document.getElementById('skillForm');
+    form.reset();
 }
 
 
-function addBullet(event,inputName,outputId){
+function addBullet(event,inputName,outputId,formId){
     event.preventDefault();
     var formData = new FormData(event.target);
     var content = formData.get(`${inputName}`);
@@ -100,17 +106,22 @@ function addBullet(event,inputName,outputId){
     newBullet.classList.add('m-1');     
     var outputDiv = document.getElementById(`${outputId}`);
     outputDiv.appendChild(newBullet);
+    var form = document.getElementById(formId);
+    form.reset();
 }
 
-function hideSidebar(){
+function hideSidebar(event){
     sidebar = document.getElementById('sidebar');
     workspace = document.getElementById('workspace');
+    const toggleButton = event.target;
     if(sidebar.style.display!='none'){
     sidebar.style.display = 'none';
     workspace.style.paddingLeft = '40px';
+    toggleButton.innerHTML = 'Show Sidebar➡️';
     }else{
         sidebar.style.display='block';
         workspace.style.paddingLeft = '280px';
+        toggleButton.innerHTML = '⬅️Hide Sidebar';
     }
 }
 

@@ -12,16 +12,19 @@
 </head>
 <body class="bg-gradient">
     <div id="main" class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <button class="btn btn-warning" onclick="hideSidebar()">Toggle Sidebar</button>
+              <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                  
+                </li>
+                <li class="nav-item acive">
+                    <a class="navbar-brand" href="cv-generator.html">Free CV Generator</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">About</a>
@@ -29,10 +32,13 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Help</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://pages.razorpay.com/buyacoffee">Buy A Coffee☕</a>
+                </li>
               </ul>
             </div>
             <div class="m-auto">
-                <a class="navbar-brand" href="cv-generator.html">Free CV Generator</a>
+                
             </div>
             </nav>
           </nav>
@@ -63,7 +69,7 @@
                 <label for="profile-summary" class="form-label">Add Profile Summary</label>
                 <textarea class="form-control" id="profile-summary" minlength="10" maxlength="256" required name="profile-summary" placeholder="Brief summary of your profile" oninput="getText('','op-profile-summary','profile-summary')"></textarea>
               <hr>
-                <form onsubmit="addEducation(event)">
+                <form onsubmit="addEducation(event)" id="eduForm">
                     <label class="form-label">Add Educational Details</label>
                     <select name="education" id="education" title="Add your educational qualifications" class="form-select m-1">
                         <option selected disabled value="">Select Education</option>
@@ -78,7 +84,7 @@
                     <input class="btn btn-sm btn-dark m-1" type="submit" value="Add">
                 </form>
               <hr>
-                <form onsubmit="addExperience(event)">
+                <form onsubmit="addExperience(event)" id="expForm">
                     <label class="form-label">Add Experience</label>
                     <input class="form-control m-1" type="text" required maxlength="30" id="company" placeholder="Company Name" name="company" title="Company Name">
                     <input class="form-control m-1" type="date" required placeholder="From Date" id="from_dt" name="from_dt" title="Started working from">
@@ -88,26 +94,26 @@
                     <input class="btn btn-sm btn-dark m-1" type="submit" value="Add">
                 </form>
             <hr>
-                <form onsubmit="addSkill(event)">
+                <form onsubmit="addSkill(event)" id="skillForm">
                     <label class="form-label">Add Skills</label>
                     <input class="form-control m-1" type="text" required maxlength="25" minlength="3" id="skillName" placeholder="Skill" name="skillName" title="Skill details">
                     <input class="form-control m-1" type="number" required min="1" max="100" step="1" id="skillLevel" name="skillLevel" title="Skill level from 1 to 100" placeholder="Skill level in 1 to 100">
                     <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
                 </form>
             <hr>
-            <form onsubmit="addBullet(event,'hobby','hobbies')">
+            <form onsubmit="addBullet(event,'hobby','hobbies','hobbyForm')" , id="hobbyForm">
                 <label class="form-label">Add Hobbies / Interests</label>
                 <input class="form-control m-1" type="text" required maxlength="15" minlength="3" id="hobby" placeholder="hobby / Interest" name="hobby" title="Hobbiies / Interests">
                 <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
             </form>
             <hr>
-            <form onsubmit="addBullet(event,'lang','languages')">
+            <form onsubmit="addBullet(event,'lang','languages','langForm')" id="langForm">
                 <label class="form-label">Add Languages</label>
                 <input class="form-control m-1" type="text" required maxlength="10" minlength="3" id="lang" placeholder="Language Name" name="lang" title="Languages you know">
                 <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
             </form>
             <hr>
-            <form onsubmit="addBullet(event,'achi','achievements')">
+            <form onsubmit="addBullet(event,'achi','achievements','achiForm')" id="achiForm">
                 <label class="form-label">Add Achievements</label>
                 <input class="form-control m-1" type="text" required maxlength="30" minlength="5" id="achi" placeholder="Achievement" name="achi" title="Your achievements">
                 <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
@@ -131,8 +137,11 @@
 
             <!-- ******************************WORKSPACE********************************************* -->
             </div>
-            <div class="col-12 bg-white workspace" id="workspace">
-            <div id="resume-print">
+            <div class="col-12 workspace" id="workspace">
+                    <div class="mb-5 ms-5">
+                        <button class="btn btn-warning ml-auto" onclick="hideSidebar(event)">⬅️Hide Sidebar</button>
+                    </div>
+                <div id="resume-print">
                 <div class="row pt-2 m-0 header-bg" id="header">
                         <div class="col-8" id="personal-d">
                             <h1 id="op-name" class="text-start"></h1>
@@ -199,9 +208,9 @@
                     </div>
                 </div>
               </div>
-              <footer class="text-center my-3 sticky-bottom opacity-75">
-                <a class="btn btn-primary btn-sm" href="https://narendravk.github.io" target="_blank">© Narendra Kashikar</a>
-                <p class="text-primary">Made with ❤️ in India</p>
+              <footer class="text-center mt-5 bottom opacity-75">
+                <a class="btn btn-dark btn-sm" href="https://narendravk.github.io" target="_blank">© Narendra Kashikar</a>
+                <p class="text-dark">Made with ❤️ in India</p>
             </footer>   
             </div>
         </div>
