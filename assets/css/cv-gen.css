@@ -114,3 +114,11 @@
     font-size: 12pt;
     margin:0px 40px;
   }
+
+  .ff-powered-img , .ff-title , .ff-description {
+    visibility: hidden;
+  }
+  
+  .ff-watermark {
+    visibility: hidden;
+  }

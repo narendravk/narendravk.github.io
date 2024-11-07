@@ -32,11 +32,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                <li class="nav-item">
                   <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#aboutModal">About</button>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" target="_blank" href="https://pages.razorpay.com/buyacoffee">Buy A Coffee☕</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#reportModal">Report A Bug</button>
                 </li>
               </ul>
               <div class="m-auto">
@@ -246,5 +249,34 @@
         </div>
       </div>
      <!-- about modal end -->
+      <!-- report modal start -->
+      <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Report A Bug</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>I’d love to hear your thoughts! If you spot any bugs or feel something could work better, please let me know. Your feedback will help make it even better for everyone! 😊</p>
+                <p>Thanks a lot, and happy CV-making! 🙌</p>
+                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                    <div class="container" id="ff-compose"></div>
+                  </div>
+        
+                </div>
+        
+              </div>
+              
+                <script async defer src="https://formfacade.com/include/117146353270360382647/form/1FAIpQLScBF9QWY-ert9d8wedpOwKSWazDzlWVEZLMO4mAJna6VnFc9w/bootstrap.js?div=ff-compose"></script>
+            </section>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- report modal end -->
 </body>
 </html>
