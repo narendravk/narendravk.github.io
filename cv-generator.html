@@ -84,46 +84,46 @@
                         <option value="Masters">Masters</option>
                         <option value="Ph.D.">Ph.D.</option>
                     </select>
-                    <input class="form-control m-1" type="text" required maxlength="20" id="college" placeholder="University/College" name="college">
+                    <input class="form-control m-1" type="text" required maxlength="30" id="college" placeholder="University/College" name="college">
                     <input class="form-control m-1" type="month" required placeholder="Year of Passing" id="passing" name="passing" title="Year of Passing">
-                    <input class="form-control m-1" type="text" minlength="2" maxlength="20" placeholder="Degree and Subject" id="degree" name="degree">
-                    <input class="form-control m-1" type="number" min="1" max="100" placeholder="Percentage / GPA" id="score" name="score">
-                    <input class="btn btn-sm btn-dark m-1" type="submit" value="Add">
+                    <input class="form-control m-1" type="text" minlength="2" maxlength="30" placeholder="Degree and Subject" id="degree" name="degree">
+                    <input class="form-control m-1" type="number" min="1" max="100" step="0.1" placeholder="Percentage / GPA" id="score" name="score">
+                    <input class="btn btn-sm btn-dark m-1" type="submit" value="Add" onclick="return confirm('Are you sure the details are correct? You will not be able to change afterwards!')">
                 </form>
               <hr>
                 <form onsubmit="addExperience(event)" id="expForm">
                     <label class="form-label">Add Experience</label>
                     <input class="form-control m-1" type="text" required maxlength="30" id="company" placeholder="Company Name" name="company" title="Company Name">
-                    <input class="form-control m-1" type="date" required placeholder="From Date" id="from_dt" name="from_dt" title="Started working from">
-                    <input class="form-control m-1" type="date" required placeholder="To Date" id="to_dt" name="to_dt" title="Worked upto">
-                    <input class="form-control m-1" type="text" minlength="3" maxlength="20" placeholder="Designation" id="designation" name="designation">
+                    <input class="form-control m-1" type="month" required placeholder="From Date" id="from_dt" name="from_dt" title="Started working from">
+                    <input class="form-control m-1" type="month" required placeholder="To Date" id="to_dt" name="to_dt" title="Worked upto">
+                    <input class="form-control m-1" type="text" minlength="3" maxlength="30" placeholder="Designation" id="designation" name="designation">
                     <textarea class="form-control m-1" type="text" minlength="10" maxlength="512" placeholder="Role & Responsibilities, use &lt;li&gt info... &lt/li&gt to create bullet points" id="role_jd" name="role_jd" rows="10"></textarea>
-                    <input class="btn btn-sm btn-dark m-1" type="submit" value="Add">
+                    <input class="btn btn-sm btn-dark m-1" type="submit" value="Add" onclick="return confirm('Are you sure the details are correct? You will not be able to change afterwards!')">
                 </form>
             <hr>
                 <form onsubmit="addSkill(event)" id="skillForm">
                     <label class="form-label">Add Skills</label>
                     <input class="form-control m-1" type="text" required maxlength="25" minlength="3" id="skillName" placeholder="Skill" name="skillName" title="Skill details">
                     <input class="form-control m-1" type="number" required min="1" max="100" step="1" id="skillLevel" name="skillLevel" title="Skill level from 1 to 100" placeholder="Skill level in 1 to 100">
-                    <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+                    <input class="btn btn-dark brn-sm m-1" type="submit" value="Add" onclick="return confirm('Are you sure the details are correct? You will not be able to change afterwards!')">
                 </form>
             <hr>
             <form onsubmit="addBullet(event,'hobby','hobbies','hobbyForm')" , id="hobbyForm">
                 <label class="form-label">Add Hobbies / Interests</label>
                 <input class="form-control m-1" type="text" required maxlength="15" minlength="3" id="hobby" placeholder="hobby / Interest" name="hobby" title="Hobbiies / Interests">
-                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add" onclick="return confirm('Are you sure the details are correct? You will not be able to change afterwards!')">
             </form>
             <hr>
             <form onsubmit="addBullet(event,'lang','languages','langForm')" id="langForm">
                 <label class="form-label">Add Languages</label>
                 <input class="form-control m-1" type="text" required maxlength="10" minlength="3" id="lang" placeholder="Language Name" name="lang" title="Languages you know">
-                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add" onclick="return confirm('Are you sure the details are correct? You will not be able to change afterwards!')">
             </form>
             <hr>
             <form onsubmit="addBullet(event,'achi','achievements','achiForm')" id="achiForm">
                 <label class="form-label">Add Achievements</label>
                 <input class="form-control m-1" type="text" required maxlength="30" minlength="5" id="achi" placeholder="Achievement" name="achi" title="Your achievements">
-                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add">
+                <input class="btn btn-dark brn-sm m-1" type="submit" value="Add" onclick="return confirm('Are you sure the details are correct? You will not be able to change afterwards!')">
             </form>
             <hr>
             <label class="form-label">Styling Options</label>    
@@ -144,7 +144,7 @@
 
             <!-- ******************************WORKSPACE********************************************* -->
             </div>
-            <div class="col-12 workspace bg-dark" id="workspace">
+            <div class="col-12 workspace bg-gradient" id="workspace">
                     <div class="mb-5 ms-5">
                         <button class="btn btn-warning ml-auto" onclick="hideSidebar(event)">⬅️Hide Sidebar</button>
                     </div>
@@ -205,7 +205,6 @@
                                 </tbody>
                             </table>
                             </div>
-                            <hr>
                             <h6 class="text-start">Experience</h6>
                             <div class="ps-1 d-flex flex-row m-1 text-start" id="exp-div">
     
@@ -215,10 +214,10 @@
                     </div>
                 </div>
               </div>
-              <footer class="text-center mt-5 bottom opacity-75">
+              <footer class="text-center mt-5 opacity-75">
                 <a class="btn btn-dark btn-sm" href="https://narendravk.github.io" target="_blank"><img class="rounded" src="assets/img/freecv_logo.jpg" height="150px" alt="Free CV Generator"></a>
-                <p class="text-light">Made with ❤️ in India</p>
-                <p class="text-light">©2024</p>
+                <p class="text-primary font-afcad">Made with ❤️ in India</p>
+                <p class="text-primary font-afcad">©2024</p>
             </footer>   
             </div>
         </div>
