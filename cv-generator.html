@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Generator</title>
+    <title>Free CV Generator</title>
     <link href="assets/img/freecv_logo.jpg" rel="icon">
     <link href="assets/img/freecv_logo.jpg" rel="apple-touch-icon">
     <meta property="og:image" content="https://narendravk.github.io/assets/img/freecv_logo.jpg" />
@@ -28,23 +28,20 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-          
+            <a class="navbar-brand" href="cv-generator.html"><img class="rounded-circle" src="assets/img/freecv_logo.jpg" height="42px" alt="Free CV Generator">Free CV Generator</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <ul class="navbar-nav m-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Help</a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                  <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#aboutModal">About</button>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" target="_blank" href="https://pages.razorpay.com/buyacoffee">Buy A Coffee☕</a>
                 </li>
               </ul>
               <div class="m-auto">
-                <img src="assets/img/freecv_logo.jpg" height="42px" alt="Free CV Generator">
-                <a class="navbar-brand" href="cv-generator.html">Free CV Generator</a>
+                
+                
             </div>
             </div>
             </nav>
@@ -145,7 +142,10 @@
             <!-- ******************************WORKSPACE********************************************* -->
             </div>
             <div class="col-12 workspace bg-gradient" id="workspace">
-                    <div class="mb-5 ms-5">
+                <div class="text-center sticky-top">
+                    <a class="" href="https://narendravk.github.io/cv-generator" target="_blank"><img class="rounded-circle" src="assets/img/freecv_logo.jpg" height="150px" alt="Free CV Generator"></a>
+                </div>    
+                <div class="mb-5 ms-5">
                         <button class="btn btn-warning ml-auto" onclick="hideSidebar(event)">⬅️Hide Sidebar</button>
                     </div>
                 <div id="resume-print" class="bg-white">
@@ -214,10 +214,9 @@
                     </div>
                 </div>
               </div>
-              <footer class="text-center mt-5 opacity-75">
-                <a class="btn btn-dark btn-sm" href="https://narendravk.github.io" target="_blank"><img class="rounded" src="assets/img/freecv_logo.jpg" height="150px" alt="Free CV Generator"></a>
-                <p class="text-primary font-afcad">Made with ❤️ in India</p>
-                <p class="text-primary font-afcad">©2024</p>
+              <footer class="mt-5 text-center">
+                <p class="text-dark font-afcad">Made with ❤️ in India</p>
+                <p class="text-dark font-afcad">© Narendra Kashikar 2024</p>
             </footer>   
             </div>
         </div>
@@ -225,5 +224,27 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="assets/js/cv-g.js"></script>
+    <!-- about modal start -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="aboutModalLabel">About Free CV Generator</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Need a CV in a jiffy? Free CV Generator is here to help! Quickly create professional CVs tailored to your needs. No design skills required. Simply fill in the details in the sidebar and let our tool do the rest. Then click on Print CV button. Done. Save time and impress recruiters with a polished CV in minutes.</p>
+              <p>More templates coming soon!</p>
+                <div class="text-center">
+                    <a class="btn btn-sm btn-primary" target="_blank" href="https://narendravk.github.io" >©Narendra Kashikar</a>  
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     <!-- about modal end -->
 </body>
 </html>
