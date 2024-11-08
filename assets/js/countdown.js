@@ -7,12 +7,15 @@ function createCountdown(){
     var header = document.getElementById('heading');
     header.innerHTML = eTitle.value;
     var eDate = new Date(document.getElementById('eventDate').value).getTime();
-    var timer = document.getElementById('timer');
     var now = new Date().getTime();
     if (eDate < now){
         alert("Event date & time must be greater than current date & time!");
         location.reload();
     } else{
+        const dp = document.getElementById('dp');
+        const hp = document.getElementById('hp');
+        const mp = document.getElementById('mp');
+        const sp = document.getElementById('sp');
     setInterval(()=>{
         var today = new Date().getTime();
         var timDeltaMilsec = Math.abs(eDate- today);
@@ -20,7 +23,10 @@ function createCountdown(){
         var remHrs = (remDays - Math.floor(remDays))*24 ;
         var remMins = (remHrs - Math.floor(remHrs))*60;
         var remSec = (remMins - Math.floor(remMins))*60;
-        timer.innerHTML = Math.floor(remDays) + " d " + Math.floor(remHrs)+" h " + Math.floor(remMins) + " m " + Math.floor(remSec) + " s ";
+        dp.innerHTML = Math.floor(remDays);
+        hp.innerHTML = Math.floor(remHrs);
+        mp.innerHTML = Math.floor(remMins);
+        sp.innerHTML = Math.floor(remSec);
     })
     
 }

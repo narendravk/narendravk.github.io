@@ -1,23 +1,24 @@
 body{
-    background-color: black;
+    background-color:darkcyan;
     text-align: center;
-    color: greenyellow;
+    color: whitesmoke;
     align-items: center;
+    background-image: url('../../assets/img/countdown-bg.jpg');
+    background-size:cover;
+    background-attachment: fixed;
 }
 
 #heading{
     font-size: 90px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#timer{
-    font-size: 90px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
 
 .box {
-    border: 5px solid greenyellow;
-    border-radius: 50px;
+    border: 5px solid blueviolet;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    animation: borderAnimation 5s infinite;
 }
 
 #spinner{
@@ -27,5 +28,87 @@ body{
 }
 
 hr{
-    border-color: greenyellow;
+    margin-top: 30px;
+    border-top: 5px solid blueviolet;
 }
+
+.digits{
+    font-size: 90px;
+    background-color:snow;
+    color:blueviolet;
+    width:fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px auto 20px auto;
+}
+
+.digits-sm{
+        font-size: 60px;
+        background-color:snow;
+        color:blueviolet;
+        max-width:max-content;
+        border-radius: 25px;
+        padding: 10px;
+        margin: 20px auto 20px auto;
+    }
+
+#form-control{
+    max-width:fit-content;
+    margin: 25px auto 25px auto;
+    border-radius: 25px;
+}
+
+@media (max-width: 768px) {
+    .digits{
+        font-size: 60px;
+    }
+    .digits-sm{
+        font-size: 30px;
+    }
+    #heading{
+        font-size: 60px;
+    }
+}
+
+footer{
+    font-size: 14px;
+    width: fit-content;
+    color: blueviolet;
+    text-decoration: none;
+    margin: auto;
+}
+
+footer a{
+    text-decoration: none;
+    color: blueviolet;
+}
+
+@keyframes borderAnimation {
+    0% {
+      border-color: blueviolet;
+    }
+    25% {
+      border-color: green;
+    }
+    50% {
+      border-color: orange;
+    }
+    75% {
+      border-color: red;
+    }
+    100% {
+      border-color: blueviolet;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      border-width: 2px;
+    }
+    50% {
+      border-width: 5px;
+    }
+    100% {
+      border-width: 2px;
+    }
+  }
