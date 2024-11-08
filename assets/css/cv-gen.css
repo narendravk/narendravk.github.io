@@ -70,6 +70,10 @@
   left:12%;
   visibility: hidden;
 }
+#hideBtnDiv{
+  position: fixed;
+  right: 5%;
+}
   @media (max-width: 768px) {
     #sidebar, #workspace {
         width: 100%;
@@ -84,15 +88,21 @@
     }
     .workspace{
       padding: 10px;
-      margin-top: 50px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 100%;
     }
     #resume-print{
       margin:10px;
+      padding: 10px;
     }
     #previewBtnDiv{
       position: fixed;
       left:70%;
       visibility: visible;
+    }
+    #top-logo,#hideBtnDiv{
+      visibility: hidden;
     }
 }
 
