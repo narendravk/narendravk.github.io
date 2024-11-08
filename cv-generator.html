@@ -31,7 +31,7 @@
             <a class="navbar-brand" href="cv-generator.html"><img class="rounded-circle" src="assets/img/freecv_logo.jpg" height="42px" alt="Free CV Generator">Free CV Generator</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                   <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#aboutModal">About</button>
                 </li>
@@ -54,6 +54,9 @@
         <div class="row">
             
             <div class="text-start bg-warning sidebar" id="sidebar">
+              <div id="previewBtnDiv">
+                <a class="btn btn-sm btn-success" href="#resume-print">Preview CV</a>
+              </div>
                 <form>
                     <label class="form-label">Personal Details</label>
                     <input class="form-control m-1" type="text" id="name" name="name" required maxlength="30" minlength="1" placeholder="Full Name" oninput="getText('','op-name','name')">
