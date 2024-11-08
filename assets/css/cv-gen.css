@@ -130,6 +130,13 @@
       };
       #achievements{break-inside: avoid;
       }
+      #previewBtnDiv{
+        visibility: hidden;
+      }
+      #hideBtnDiv{
+        visibility: hidden;
+      }
+
     }
 
 
