@@ -22,9 +22,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/countdown.css">
 </head>
-<body>
+<body onload="checkLocalData()">
     <div class="container">
     <div class="box col-12">
+        <div class="float-end">
+            <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#settingsModal">⚙️</button>
+          </div>
         <div id="form-control" class="form-control bg-dark text-light bg-gradient">
             <input class="form-control my-2" id="eventTitle" type="text" minlength="5" maxlength="30" placeholder="Event Title" name="eventTitle">
             <input class="form-control my-2" id="eventDate" type="datetime-local" placeholder="Select the date" name="eventDate">
@@ -55,12 +58,39 @@
     </div>
     <img id="spinner" src="assets/img/spinner.gif" height="128px" alt="countdown spinner">
     </div>
-
-    <footer class="mt-5">
-        <p>Press F11 for fullscreen.</p>
-        <a href="https://narendravk.github.io" target="_blank">Created by: Narendra Kashikar</a>
-        <p>© 2024</p>
+    <p class="btn btn-sm btn-dark">Press F11 for fullscreen.</p>
+    <footer class="mt-5 sticky-bottom opacity-50">
+        <a class="btn btn-sm btn-primary" href="https://narendravk.github.io" target="_blank">© Narendra Kashikar</a>
     </footer>
+
+        <!-- settings modal start -->
+  <!-- Modal -->
+  <div class="modal fade text-dark" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label" for="bgURL">Change Background</label>
+          <input class="form-inline" type="url" id="eventBG" name="eventBG" placeholder="Paste your image URL here" title="You can right click on any image and copy the URL">
+          <button class="btn btn-primary btn-sm" onclick="changeEventBG()">Update</button>
+          <hr>
+          <button type="button" class="btn btn-danger" onclick="resetLocal()">Reset App</button>
+          <p>This site does not store any of the information above or your task details. All details are strictly stored on your own device only.</p>
+          <p>If you are using a public computer, please click 'Reset App' above to clear all data.</p>
+          <p>Created by: <a href="https://narendravk.github.io" target="_blank">Narendra Kashikar</a></p>
+          <p>©2024</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>      
+  </div>  
+         <!-- about settings end -->
+          
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="assets/js/countdown.js"></script>
 </div>
