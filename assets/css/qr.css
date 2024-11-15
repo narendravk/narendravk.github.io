@@ -1,0 +1,31 @@
+.ff-powered-img , .ff-title , .ff-description {
+    visibility: hidden;
+  }
+  
+  .ff-watermark {
+    visibility: hidden;
+  }
+
+  #main{
+    margin: 100px auto 50px auto;
+  }
+
+  #getQRBtn{
+    visibility: hidden;
+  }
+
+  #qrDiv{
+    border: solid 1px black;
+    border-radius: 25px;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  body{
+    height: 100vh;
+    background-image: url('../img/qr-bg.jpg');
+    background-size: auto;
+    background-attachment: fixed;
+  }
