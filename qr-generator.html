@@ -22,6 +22,8 @@
     <link href="assets/css/qr.css" rel="stylesheet" />
 </head>
 <body class="">
+  <div id="loading" class="text-center align-middle my-5">
+    <img id="loading-image" src="assets/img/spinner2.gif" alt="Loading..." />
     <div id="navbar" class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient fixed-top">
             
@@ -121,5 +123,17 @@
           </div>
        <!-- report modal end -->
        <button id="getQRBtn" type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#qrModal">About</button>
-</body>
+          <script>
+                    // spinner
+        window.addEventListener('DOMContentLoaded', (event) =>{
+        let LoadAnim = document.getElementById('loading');
+        let mainDiv = document.getElementById('main');
+        LoadAnim.style.display = 'none';
+        mainDiv.style.display ='block';
+        }
+      );
+      
+          </script>
+
+      </body>
 </html>

@@ -34,11 +34,25 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
+<style>
+@media screen and (max-width:756px) {
+  .card{
+    flex-basis:100%;
+  }
+}
+@media screen and (min-width:757px) {
+  .card{
+    flex-basis:45%;
+  }
+}
+</style>
 </head>
 
-<body>
-
+<body  style="background-image:url('assets/img/qr-bg.jpg');background-attachment: fixed;">
+  <div id="loading" class="text-center align-middle my-5">
+    <img id="loading-image" src="assets/img/spinner2.gif" alt="Loading..." />
+  </div>
+<div id="loaded" style="display: none;">
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
   <header id="header">
     <div class="d-flex flex-column">
@@ -97,27 +111,9 @@
     </section><!-- End Breadcrumbs -->
 
     <section class="inner-page">
-      <div class="container">
-          <div class="row">
+      <div class="d-flex flex-row flex-wrap bd-highlight p-3" id="blogContainer">
 
-            <div class="card col-lg-6 col-md-4 col-sm-1 col-xs-1 bg-dark text-light">
-              <div class="card-header">
-                3 Fascinating Facts About QR Codes 🌀
-              </div>
-              <div class="card-body">
-                <ol class="card-text">
-                  <li>🚗: QR (Quick Response) codes were invented in 1994 by Denso Wave, a subsidiary of Toyota, to track car parts during manufacturing. </li>
-                  <li>📦: A QR code can hold 7,089 numeric characters or 4,296 alphanumeric characters, making it far more powerful than a traditional barcode.</li>
-                  <li>🛠️: QR codes use error correction, meaning they can still work if up to 30% of the code is damaged or obscured. That’s why you can see logos embedded in QR codes.</li>
-                </ol>
-              </div>
-              <div class="card-footer">
-                14-Nov-24
-              </div>
-            </div>
-          </div>
-
-          </div>
+      </div>
     </section>
 
   </main><!-- End #main -->
@@ -133,7 +129,7 @@
   </footer><!-- End  Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+</div>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -147,7 +143,18 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/myblog.js"></script>
+  <script>
+            // spinner
+            window.addEventListener('DOMContentLoaded', (event) =>{
+        let LoadAnim = document.getElementById('loading');
+        let mainDiv = document.getElementById('loaded');
+        LoadAnim.style.display = 'none';
+        mainDiv.style.display ='block';
+        }
+      );
+      
+  </script>
 </body>
 
 </html>

@@ -3,7 +3,7 @@ body{
     text-align: center;
     color: whitesmoke;
     align-items: center;
-    background-image: url('../../assets/img/countdown-bg.jpg');
+    background-image: url('../../assets/img/qr-bg.jpg');
     background-size:cover;
     background-attachment: fixed;
 }
