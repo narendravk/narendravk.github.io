@@ -23,11 +23,46 @@
     <link rel="stylesheet" href="assets/css/countdown.css">
 </head>
 <body onload="checkLocalData()">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+            
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="countdown.html"><img class="rounded-circle" src="assets/img/countdown_logo.png" height="42px" alt="Free CV Generator">Countdown</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#settingsModal">Settings⚙️</button>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" target="_blank" href="https://pages.razorpay.com/buyacoffee">Buy A Coffee☕</a>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#reportModal">Report A Bug⚠️</button>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More Apps
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item disabled" href="countdown.html">Countdown App</a>
+            <a class="dropdown-item" href="todo.html">To Do App</a>
+            <a class="dropdown-item" href="cv-generator.html">CV Generator</a>
+            <a class="dropdown-item" href="qr-generator.html">QR Code Generator</a>
+            <a class="dropdown-item" href="today-in-history.html">Today In History</a>
+          </div>
+        </li>
+      </ul>
+      <div class="m-auto">
+        
+        
+    </div>
+    </div>
+    </nav>
+
     <div class="container">
     <div class="box col-12">
-        <div class="float-end">
-            <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#settingsModal">⚙️</button>
-          </div>
         <div id="form-control" class="form-control bg-dark text-light bg-gradient">
             <input class="form-control my-2" id="eventTitle" type="text" minlength="5" maxlength="30" placeholder="Event Title" name="eventTitle">
             <input class="form-control my-2" id="eventDate" type="datetime-local" placeholder="Select the date" name="eventDate">
@@ -59,7 +94,7 @@
     <img id="spinner" src="assets/img/spinner.gif" height="128px" alt="countdown spinner">
     </div>
     <p class="btn btn-sm btn-dark">Press F11 for fullscreen.</p>
-    <footer class="mt-5 sticky-bottom opacity-50">
+    <footer class="mt-5 opacity-50">
         <a class="btn btn-sm btn-primary" href="https://narendravk.github.io" target="_blank">© Narendra Kashikar</a>
     </footer>
 
@@ -90,6 +125,32 @@
     </div>      
   </div>  
          <!-- about settings end -->
+        <!-- report modal start -->
+        <div class="modal fade text-dark" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="reportModalLabel">Report A Bug</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>I’d love to hear your thoughts! If you spot any bugs or feel something could work better, please let me know. Your feedback will help make it even better for everyone! 😊</p>
+                  <p>Thanks a lot, and happy QR-making! 🙌</p>
+                  <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                      <div class="container" id="ff-compose"></div>
+                    </div>
+          
+                  </div>
+                
+                  <script async defer src="https://formfacade.com/include/117146353270360382647/form/1FAIpQLScBF9QWY-ert9d8wedpOwKSWazDzlWVEZLMO4mAJna6VnFc9w/bootstrap.js?div=ff-compose"></script>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+          </div>
+            </div>
+         <!-- report modal end -->        
           
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="assets/js/countdown.js"></script>

@@ -20,17 +20,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-</head>
+    <style>
+      .ff-powered-img , .ff-title , .ff-description {
+    visibility: hidden;
+  }
+  
+  .ff-watermark {
+    visibility: hidden;
+  }
+
+    </style>
+
+  </head>
 <body id="body" style="background-image: url('assets/img/qr-bg.jpg');background-size: cover;background-attachment: fixed;">
   <div id="loading" class="text-center align-middle my-5">
     <img id="loading-image" src="assets/img/spinner2.gif" alt="Loading..." />
   </div>
+  <div id="navbar" class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="todo.html"><img class="rounded" src="assets/img/todo_logo.png" height="42px" alt="Free ToDo App"> ToDo</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link active" target="_blank" href="https://pages.razorpay.com/buyacoffee">Buy A Coffee☕</a>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#reportModal">Report A Bug⚠️</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#settingsModal">Settings⚙️</button>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More Apps
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="countdown.html">Countdown App</a>
+                <a class="dropdown-item disabled" href="todo.html">To Do App</a>
+                <a class="dropdown-item" href="cv-generator.html">CV Generator</a>
+                <a class="dropdown-item" href="qr-generator.html">QR Code Generator</a>
+                <a class="dropdown-item" href="today-in-history.html">Today In History</a>
+              </div>
+            </li>
+          </ul>
+          <div class="m-auto">
+        </div>
+    </div>
+</nav>
+</div>
     <div style="display: none;" id="main" class="container-fluid text-center" >
         <div id="board" style="border-radius: 25px;min-height:75vh; background-color: rgba(0, 189, 255, 0.55);" class="mx-auto my-5 p-3">
-          <img src="assets/img/todo_logo.png" alt="ToDoApp" height="90px">  
-          <!-- <h2 class="btn btn-lg btn-dark mx-auto my-2 text-light">To Do App</h2> -->
+          <h2 class="btn btn-lg btn-dark mx-auto my-2 text-light">ToDo App</h2>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-dark btn-lg float-end mx-1" data-bs-toggle="modal" data-bs-target="#settingsModal">⚙️</button>
+
   <!-- Modal -->
   <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -118,6 +165,32 @@
             <button class="btn btn-sm btn-dark mx-auto my-0" onclick="viewInstallToast()">⏬Install</button>
           </footer>
     </div>
+    <!-- report modal start -->
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reportModalLabel">Report A Bug</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>I’d love to hear your thoughts! If you spot any bugs or feel something could work better, please let me know. Your feedback will help make it even better for everyone! 😊</p>
+              <p>Thanks a lot and enjoy the app! 🙌</p>
+              <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                  <div class="container" id="ff-compose"></div>
+                </div>
+      
+              </div>
+            
+              <script async defer src="https://formfacade.com/include/117146353270360382647/form/1FAIpQLScBF9QWY-ert9d8wedpOwKSWazDzlWVEZLMO4mAJna6VnFc9w/bootstrap.js?div=ff-compose"></script>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+      </div>
+        </div>
+     <!-- report modal end -->
     <script>
         var today = new Date().toISOString().slice(0,10);
         var deadline0 = document.getElementById('deadline');
