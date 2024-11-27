@@ -3,6 +3,7 @@ const qAmount = 10;
 const qEncoding = "";
 const mainDiv = document.getElementById('main');
 const selectDiv = document.getElementById('selection');
+const spinner = document.getElementById('fetchSpinner');
 const tempDiv = document.getElementById('tempDiv');
 const qText = document.getElementById('qText');
 const btn1 = document.getElementById('opt1');
@@ -135,6 +136,7 @@ function checkAnswer(event){
 }
 }
 async function startQuiz(event){
+    spinner.style.display = 'block';
     event.preventDefault();
     var quizStartData = new FormData(event.target);
     var difficulty = quizStartData.get('level');
@@ -159,5 +161,7 @@ async function startQuiz(event){
         console.error('Error fetching data',error);
         alert('Oops, something went wrong! Please try after sometime!!');
         // location.reload();
+    }finally{
+        spinner.style.display = 'none';
     }
 }
