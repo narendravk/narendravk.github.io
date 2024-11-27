@@ -1,0 +1,43 @@
+.ff-powered-img , .ff-title , .ff-description {
+    visibility: hidden;
+  }
+  
+  .ff-watermark {
+    visibility: hidden;
+  }
+
+  @media screen and (max-width:756px) {
+    .qOption{
+      flex-basis:100%;
+    }
+    #heroLogo{
+      width:90px;
+    }
+  }
+  @media screen and (min-width:757px) {
+    .qOption{
+      flex-basis:40%;
+    }
+    #heroLogo{
+      width:140px;
+    }
+  }
+
+  .qOption{
+    margin: 20px auto 20px auto;
+    padding: 20px auto 20px auto;
+  }
+
+  #selection{
+    width: 60%;
+    margin: 50px auto 20px auto;
+  }
+
+  #main{
+    display: none;
+  }
+
+  #tempDiv{
+    display: none;
+    visibility: hidden;
+  }

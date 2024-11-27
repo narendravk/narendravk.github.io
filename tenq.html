@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain10</title>
+    <link href="assets/img/tenq-logo.jpg" rel="icon">
+    <link href="assets/img/tenq-logo.jpg" rel="apple-touch-icon">
+    <meta property="og:image" content="https://narendravk.github.io/assets/img/tenq-logo.jpg" />
+    <meta property="og:image" content="https://narendravk.github.io/assets/img/tenq-logo.jpg" />
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://narendravk.github.io/tenq"/>
+    <meta property="og:title" content="10Q" />
+    <meta property="og:description" content="The 10-Question Test of Knowledge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="assets/css/tenq.css" rel="stylesheet" />
+</head>
+<body class="bg-dark">
+    <div id="navbar" class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning bg-gradient sticky-top">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a style="font-size: 15px;" class="navbar-brand" href="tenq.html"><img src="assets/img/tenq-logo.jpg" height="42px" alt="Free QR Code Generator">The 10-Question Test of Knowledge</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" target="_blank" href="https://pages.razorpay.com/buyacoffee">Buy A Coffee☕</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#reportModal">Report A Bug</button>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More Apps
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="countdown.html">Countdown App</a>
+                    <a class="dropdown-item" href="todo.html">To Do App</a>
+                    <a class="dropdown-item" href="cv-generator.html">CV Generator</a>
+                    <a class="dropdown-item disabled" href="qr-generator.html">QR Code Generator</a>
+                    <a class="dropdown-item" href="today-in-history.html">Today In History</a>
+                  </div>
+                </li>
+              </ul>
+              <div class="m-auto">
+            </div>
+        </div>
+    </nav>
+    </div>
+    <div id="selection" class="text-center">
+        <img src="assets/img/tenq-logo.jpg" height="180px" class="rounded mb-5"/>
+        <form class="" onsubmit="startQuiz(event)">
+            <select class="form-select my-3" id="topic" required name="topic" title="Please select the topic of your questions">
+                <option value="" disabled selected>Please select the topic</option>
+                <option value="0">Any Category</option>
+                <option value="9">General Knowledge</option>
+                <option value="10">Books</option>
+                <option value="11">Film</option>
+                <option value="12">Music</option>
+                <option value="13">Musicals & Theatres</option>
+                <option value="14">Television</option>
+                <option value="15">Video Games</option>
+                <option value="16">Board Games</option>
+                <option value="17">cience & Nature</option>
+                <option value="18">Computers</option>
+                <option value="19">Mathematics</option>
+                <option value="20">Mythology</option>    
+                <option value="21">Sports</option>
+                <option value="22">Geography</option>
+                <option value="23">History</option>
+                <option value="24">Politics</option>
+                <option value="25">Art</option>
+                <option value="26">Celebrities</option>
+                <option value="27">Animals</option>
+                <option value="28">Vehicles</option>
+                <option value="29">Comics</option>
+                <option value="30">Gadgets</option>
+                <option value="32">Cartoon & Animations</option>
+            </select>
+            <select class="form-select my-3" id="level" required name="level" title="Please select the quiz difficulty level">
+                <option value="" disabled selected>Please select the difficulty level</option>
+                <option value="">Any Difficulty</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <input class="btn btn-danger my-3" type="submit" value="Start Quiz">
+        </form>
+    </div>
+    <div id="main" class="container-fluid">
+        <div id="scoreCard" class="text-center bg-info">
+            <h4>Score:<span id="curScore">0/0</span></h4>
+        </div>
+        <div class="row text-start p-2 m-2 rounded" id="qContainer">
+            <img id="heroLogo" class="col-lg-2 col-md-6 col-sm-12" src="assets/img/tenq-logo.jpg" width="90px">
+            <h3 class="col-lg-10 col-md-6 col-sm-12 my-auto text-light" id="qText">This is the question</h3>
+        </div>
+        <hr>
+        <div class="d-flex flex-row flex-wrap bd-highlight p-3 flex-shrink-2" id="optContainer">
+        <button type="button" id="opt1" class="qOption opt1 btn btn-primary" onclick="checkAnswer(event)">1</button>
+        <button type="button" id="opt2" class="qOption opt2 btn btn-primary" onclick="checkAnswer(event)">2</button>
+        <button type="button" id="opt3" class="qOption opt3 btn btn-primary" onclick="checkAnswer(event)">3</button>
+        <button type="button" id="opt4" class="qOption opt4 btn btn-primary" onclick="checkAnswer(event)">4</button>
+        </div>
+    </div>
+    <div class="container-fluid text-center rounded mt-5">
+        <footer class="text-center btn btn-sm btn-warning">
+            <a href="https://narendravk.github.io">© Narendra Kashikar</br>Made with ❤️ in India</a>
+        </footer>
+    </div>
+              <!-- report modal start -->
+              <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="reportModalLabel">Report A Bug</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>I’d love to hear your thoughts! If you spot any bugs or feel something could work better, please let me know. Your feedback will help make it even better for everyone! 😊</p>
+                        <p>Thanks a lot! 🙌</p>
+                        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                            <div class="container" id="ff-compose"></div>
+                          </div>
+                
+                        </div>
+                      
+                        <script async defer src="https://formfacade.com/include/117146353270360382647/form/1FAIpQLScBF9QWY-ert9d8wedpOwKSWazDzlWVEZLMO4mAJna6VnFc9w/bootstrap.js?div=ff-compose"></script>
+                    
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+                  </div>
+               <!-- report modal end -->
+                <!-- check modal start -->
+              <div class="modal fade" id="checkModal" tabindex="-1" aria-labelledby="checkModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="reportModalLabel">10Q?</h5>
+                      <button type="button" onclick="closeModal()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center m-auto">
+                      <img id="checkModalImg" src="assets/img/tenq-logo.jpg" width="150px" alt="Check Answer">
+                        <h6 id="checkModalMsg" class="my-2 mx-auto"></h6>
+                    </div>
+                    <div class="modal-footer">
+                      <button  id="nextBtn" onclick="closeModal()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Next</button>
+                    </div>
+                </div>
+                </div>
+                  </div>
+               <!-- check modal end -->
+                <div id="tempDiv">
+                  
+                </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/js/tenq.js"></script>
+</body>
+</html>
