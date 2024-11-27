@@ -17,6 +17,20 @@ var qIndex = 0;
 var qScore = 0;
 var qList;
 
+function randomizer(array){
+    const length = array.length;
+    var randArray = [];
+    for(let i=0;i<length;i++){
+        var curLength = array.length;
+        var x = Math.floor(Math.random()*curLength);
+        randArray.push(array[x]);
+        array.splice(x,1);
+    }
+    return randArray;
+}
+
+
+
 function showModal(myModal){
     myModal.classList.add('show');
     document.body.classList.add('modal-backdrop','show');
@@ -34,10 +48,11 @@ function updateQuestion(index,list){
     qText.innerHTML = decode(list[index]['question']);
     var choices = list[index]['incorrect_answers'];
     choices.push(list[index]['correct_answer']);
-    btn1.innerHTML = decode(choices[0]);
-    btn2.innerHTML = decode(choices[1]);
-    btn3.innerHTML = decode(choices[2]);
-    btn4.innerHTML = decode(choices[3]);
+    var randChoices = randomizer(choices);
+    btn1.innerHTML = decode(randChoices[0]);
+    btn2.innerHTML = decode(randChoices[1]);
+    btn3.innerHTML = decode(randChoices[2]);
+    btn4.innerHTML = decode(randChoices[3]);
 }
 
 
