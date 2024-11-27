@@ -71,7 +71,8 @@ hr{
 }
 
 footer{
-
+  width:max-content;
+  margin: auto;
 }
 
 footer a{

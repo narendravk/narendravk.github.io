@@ -17,6 +17,47 @@ const scoreCard = document.getElementById('curScore');
 var qIndex = 0;
 var qScore = 0;
 var qList;
+var sessionToken;
+
+async function getNewToken(){
+    var curTime = new Date().getTime();
+    try{
+        const response = await(fetch('https://opentdb.com/api_token.php?command=request'));
+        if(!response.ok){
+            throw new Error(`Error Ocurred: ${response.status}`);
+        }else{
+            const data = await response.json();
+            if(data['response_code']==0){
+                localStorage.setItem('tenqToken',data['token']);
+                localStorage.setItem('tenqStart',curTime);
+            }else{
+                alert(data['response_message']);
+                return;
+            }
+        }
+    }catch(error){
+        console.error('Error fetching data',error);
+    }
+}
+
+
+async function checkToken(){
+    var curTime = new Date().getTime();
+    if(localStorage.getItem('tenqToken')!==null){
+        var tokenTime = new Date(parseInt(localStorage.getItem('tenqStart'),10));
+        if((curTime-tokenTime)<21600000){
+            localStorage.setItem('tenqStart',curTime);
+        }else{
+            await getNewToken();
+        }
+    }else{
+        await getNewToken();
+}
+sessionToken = await localStorage.getItem('tenqToken');
+}
+
+
+
 
 function randomizer(array){
     const length = array.length;
@@ -142,7 +183,7 @@ async function startQuiz(event){
     var difficulty = quizStartData.get('level');
     var category = quizStartData.get('topic');
     try{
-        const response = await(fetch(`https://opentdb.com/api.php?amount=${qAmount}&category=${category}&difficulty=${difficulty}&type=${qType}`));
+        const response = await(fetch(`https://opentdb.com/api.php?amount=${qAmount}&token=${sessionToken}&category=${category}&difficulty=${difficulty}&type=${qType}`));
         if(!response.ok){
             throw new Error(`Server Error Occured! error code:${response.status}`);
         }else{
@@ -165,3 +206,6 @@ async function startQuiz(event){
         spinner.style.display = 'none';
     }
 }
+
+
+checkToken();

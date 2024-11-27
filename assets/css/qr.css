@@ -29,3 +29,8 @@
     background-size: auto;
     background-attachment: fixed;
   }
+
+  footer{
+    width:max-content;
+    margin: auto;
+  }

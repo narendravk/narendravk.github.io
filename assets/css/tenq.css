@@ -47,3 +47,8 @@
     display:none;
     margin: auto;
   }
+
+  footer{
+    width:max-content;
+    margin: auto;
+  }
