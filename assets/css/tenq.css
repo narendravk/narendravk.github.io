@@ -49,6 +49,11 @@
   }
 
   footer{
-    width:max-content;
+    width:fit-content;
     margin: auto;
+    border-radius: 10px;
+  }
+
+  footer a{
+    text-decoration: none;
   }

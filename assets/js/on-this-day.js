@@ -1,6 +1,7 @@
 let today = new Date();
 const date = today.getDate();
 const month = today.getMonth()+1;
+const spinner = document.getElementById('fetchSpinner');
 const monthList = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 document.getElementById('daySpan').innerHTML = date;
 document.getElementById('monthSpan').innerHTML = monthList[month-1];
@@ -8,6 +9,7 @@ document.getElementById('monthSpan').innerHTML = monthList[month-1];
 
 
 async function fetchHistory(){
+    spinner.style.display = 'block';
     try{
         const response = await fetch(`https://byabbe.se/on-this-day/${month}/${date}/events.json`);
         if(!response.ok){
@@ -27,6 +29,8 @@ async function fetchHistory(){
         }
 } catch(error){
     console.error(error);
+}finally{
+    spinner.style.display = 'none';
 }
 }
 fetchHistory();
