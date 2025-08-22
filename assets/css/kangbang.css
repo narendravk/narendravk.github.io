@@ -1,0 +1,28 @@
+:root{
+--textColor: #640D5F;
+}
+
+.dropArea{
+    padding: 20px;
+    border: gray 2px dashed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.collection-item {
+color: teal;
+background-color: #f0f0f0;
+}
+.collection-item:hover {
+    background-color: teal;
+    color: white;
+}
+
+.collection-item:hover .material-icons {
+    color: white;
+}
+
+.sub-heading{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
