@@ -5,7 +5,7 @@ const startButton = document.getElementById('startButton');
 const statusDisplay = document.getElementById('statusDisplay');
 const scoreDisplay = document.getElementById('scoreDisplay');
 const blockIDs = Array.from(blocks).map(block => block.id);
-const mySound = new Audio('keypress_sound.mp3'); // Optional sound effect
+const mySound = new Audio('assets/keypress_sound.mp3'); // Optional sound effect
 
 let currentSpan = 3; // Start with a span of 3
 let currentSequence = [];

@@ -2,9 +2,10 @@
 
 #corsi-board {
             position: relative;
-            width: 400px;
+            /* width: 400px; */
             height: 400px;
             margin: 50px auto;
+            padding: 2px;
             border: 2px solid #ccc;
         }
         .block {
