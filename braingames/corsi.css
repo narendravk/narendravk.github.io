@@ -1,0 +1,40 @@
+/* Custom CSS */
+
+#corsi-board {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 50px auto;
+            border: 2px solid #ccc;
+        }
+        .block {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #3498db;
+            border: 3px solid #2c3e50;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 28px;    
+        }
+    .block.active {
+        background-color: #e74c3c; /* Lights up when active/in sequence */
+    }
+    .green-tap {
+        background-color: #348d29; /* Green for correct tap */
+    }
+    .block:hover:not(.active) {
+        background-color: #2980b9;
+    }
+    .game-on{
+        background-color: rgb(225, 226, 133);
+    }
+    .game-off{
+        background-color: rgb(160, 56, 37);
+    }
