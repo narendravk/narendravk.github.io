@@ -85,6 +85,7 @@ function displaySequence(sequence) {
     userInput.disabled = true; 
     userInput.value = '';
     digitDisplay.textContent = sequence[0];
+    new Audio(`assets/${sequence[0]}.mp3`).play();
     let currentPosition = 1;
     let displayInterval = setInterval(() => {
         if(currentPosition >= sequence.length) {
@@ -99,6 +100,8 @@ function displaySequence(sequence) {
         } else{
             
             setTimeout(() => {
+            const sound = new Audio(`assets/${sequence[currentPosition]}.mp3`);
+            sound.play();
             digitDisplay.textContent = sequence[currentPosition];
             currentPosition++;
             }, 500);
