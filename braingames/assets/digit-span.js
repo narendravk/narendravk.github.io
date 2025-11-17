@@ -101,6 +101,7 @@ function displaySequence(sequence) {
             
             setTimeout(() => {
             const sound = new Audio(`assets/${sequence[currentPosition]}.mp3`);
+            sound.autplay = true;
             sound.play();
             digitDisplay.textContent = sequence[currentPosition];
             currentPosition++;
