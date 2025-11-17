@@ -1,29 +1,41 @@
 /* Custom CSS */
 
 #corsi-board {
-            position: relative;
-            /* width: 400px; */
-            height: 400px;
-            margin: 50px auto;
-            padding: 2px;
-            border: 2px solid #ccc;
-        }
-        .block {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background-color: #3498db;
-            border: 3px solid #2c3e50;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 28px;    
-        }
+        /* Container properties for 3x3 grid */
+        display: flex;
+        flex-wrap: wrap;
+        justify-self: center;
+        
+        /* Fixed size for a consistent grid appearance */
+        width: 300px; 
+        height: 300px;
+        
+        border: 2px solid #ccc;
+    }
+    .block {
+        /* Each block takes up 1/3 of the width */
+        flex: 0 0 calc(33.333% - 10px); /* 1/3 width minus margin adjustment */
+        width: 80px; /* Base size for blocks */
+        height: 80px;
+        
+        /* Spacing between blocks */
+        margin: 5px; 
+        
+        background-color: #3498db;
+        border: 3px solid #2c3e50;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        
+        /* Centering the number inside */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+
+        font-size: 30px;
+    }
     .block.active {
         background-color: #e74c3c; /* Lights up when active/in sequence */
     }
