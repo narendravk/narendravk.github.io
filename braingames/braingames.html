@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrainGames — Listings</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* small custom tweaks */
+    .hero {
+      background: linear-gradient(90deg, #0d6efd22, #6f42c122);
+      padding: 3rem 0;
+    }
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">BrainGames</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#games-list">Games</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Intro / Hero -->
+  <header class="hero my-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h1 class="display-6 mb-2">Engage Your Mind: Active Aging Through Play.</h1>
+          <p class="lead mb-0">
+            Welcome to a collection of engaging brain and memory games designed to support cognitive wellness in senior citizens. Developed in collaboration with my sister, Yaashodaa Kashikar-Padhye, who is pursuing a Ph.D. in this vital area, these tools are built on the principles of active aging and dementia prevention. Our goal is to provide fun, stimulating activities that help keep the mind active, sharp, and resilient!
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+          <a href="#games-list" class="btn btn-primary btn-lg">Browse Games</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Listings -->
+  <main class="container mb-5" id="games-list">
+    <div class="row g-3 mb-3">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <h2 class="h4 mb-0">All Games</h2>
+        <small class="text-muted">Click a card to open the game page</small>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- Game card 1 -->
+      <div class="col">
+        <article class="card h-100 shadow-sm">
+          <a href="corsi.html" class="stretched-link" aria-label="Open Corsi Blocks Tapping Test"></a>
+          <img src="assets/corsi-thumb.png" class="card-img-top" alt="Corsi Blocks Tapping Test"
+               onerror="this.onerror=null;this.src='https://via.placeholder.com/640x360?text=Memory+Match';">
+          <div class="card-body">
+            <h5 class="card-title">Corsi Block-Tapping Test</h5>
+            <p class="card-text text-muted">
+                The Corsi Block-Tapping Test (also known as the Corsi Span Test) is a widely used neuropsychological task designed to measure visuospatial short-term memory and working memory capacity.
+            </p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="corsi.html" class="btn btn-outline-primary btn-sm">Open Game</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Game card 2 -->
+      <div class="col">
+        <article class="card h-100 shadow-sm">
+          <a href="digit-span.html" class="stretched-link" aria-label="Open Digit Span Test game"></a>
+          <img src="assets/digit-span-thumb.png" class="card-img-top" alt="Digit Span Test"
+               onerror="this.onerror=null;this.src='https://via.placeholder.com/640x360?text=Brain+Twist';">
+          <div class="card-body">
+            <h5 class="card-title">Digit Span Test</h5>
+            <p class="card-text text-muted">
+                The Digit Span Test is one of the most classic and widely used cognitive assessment tools. It measures an individual's verbal short-term memory and working memory capacity.
+            </p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="digit-span.html" class="btn btn-outline-primary btn-sm">Open Game</a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="border-top py-3">
+    <div class="container text-center text-muted small">
+      © <span id="year"></span> Narendra Kashikar — All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // set year and enable bootstrap JS
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

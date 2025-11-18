@@ -152,6 +152,12 @@ function startTest() {
     startButton.textContent = "Next Round (or Stop)";
     
     // Generate and play the sequence
+    if(board.classList.contains('game-off')){
+        board.classList.remove('game-off');
+    }
+    if (!board.classList.contains('green-tap')){
+        board.classList.remove('green-tap');
+    }
     board.classList.add('game-on', 'p-3', 'rounded'); // Highlight board during sequence
     currentSequence = generateSequence();
     playSequence(currentSequence);
