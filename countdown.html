@@ -139,7 +139,36 @@
         <div class="modal-body">
           <p>Spotted a bug or have a suggestion? I'd love to hear it — your feedback makes this better for everyone. 😊</p>
           <p>Thanks for taking the time! 🙌</p>
-          <div class="container" id="ff-compose"></div>
+          <div id="contactFormDiv">
+          <form id="contactForm" method="post" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSegIX0irCE70gKwWG4yerGuokMOPpZTuohepv9VFZ3VV2KV1A/formResponse">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" placeholder="Rahul Sharma" required name="entry.274240240" minlength="3" maxlength="30" pattern="^[a-zA-Z\s]+$">
+            </div>
+            <div class="form-group">
+              <label for="femail">Email Address</label>
+              <input type="email" id="femail" placeholder="rahul@example.com" required type="email" maxlength="50" name="entry.114067296">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Phone / WhatsApp</label>
+            <input type="tel" id="fphone" placeholder="9876543210" name="entry.911812436" pattern="[6-9]{1}[0-9]{9}" type="tel" minlength="10" maxlength="10">
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Your Message</label>
+            <textarea id="fmessage" rows=4 placeholder="Tell me about your project — scope, timeline, and what you'd like to achieve..." required name="entry.745462444" minlength="10" maxlength="512"></textarea>
+          </div>
+          <button id="formSubmitBtn" type="submit" class="form-submit">
+            Send Message ✦
+          </button>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="check">✅</div>
+          <strong>Message sent!</strong>
+          <p>Thanks for reaching out and reporting the bug. I'll try to review and update ASAP. Thanks again!</p>
+        </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
