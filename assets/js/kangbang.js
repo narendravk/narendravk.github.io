@@ -6,14 +6,19 @@ if (!localStorage.getItem("kangbangItems")) {
   const items = JSON.parse(localStorage.getItem("kangbangItems"));
   items.forEach((item) => {
     const listItem = document.createElement("li");
+    var date1 = new Date()
+    var date2 = new Date(item.itemDate);
+    lapsedTime = Math.abs(date1 - date2);
+    lapsedDays = Math.floor(lapsedTime/(1000*60*60*24));
     listItem.innerHTML = `
           <div class="valign-wrapper">
             <i class="material-icons left teal-text text-darken-2">drag_handle</i>
             <span>${item.text}</span>
-            <a href="#!" class="secondary-content red-text" onclick="this.parentElement.parentElement.remove()">
+            <a href="#!" class="secondary-content red-text" onclick="removeItem(this)">
             <i class="material-icons right">delete</i>
             </a>
           </div>
+          <div class="bp-eyebrow-date">🗓️${lapsedDays} days ago</div>
         `;
     listItem.setAttribute("id", item.id);
     listItem.setAttribute("draggable", "true");
@@ -46,20 +51,23 @@ function addToList(e, listId) {
     return;
   } else {
     const listItem = document.createElement("li");
+    lapsedDays = 0;
     listItem.innerHTML = `
           <div class="valign-wrapper">
             <i class="material-icons left teal-text text-darken-2">drag_handle</i>
             <span>${text}</span>
-            <a href="#!" class="secondary-content red-text" onclick="this.parentElement.parentElement.remove()">
+            <a href="#!" class="secondary-content red-text" onclick="removeItem(this)">
             <i class="material-icons">delete</i>
             </a>
             </div>
+            <div class="bp-eyebrow-date">🗓️${lapsedDays} days ago</div>
         `;
     var itemID = `${Date.now().valueOf().toString(36)}`;
+    var itemDate = new Date();
     listItem.setAttribute("id", itemID);
     // Store the item in localStorage
     let items = JSON.parse(localStorage.getItem("kangbangItems"));
-    items.push({ id: itemID, text: text, status: listId });
+    items.push({ id: itemID, text: text, status: listId, itemDate:itemDate });
     localStorage.setItem("kangbangItems", JSON.stringify(items));
     listItem.setAttribute("draggable", "true");
     listItem.classList.add("collection-item", "draggable");
@@ -98,3 +106,32 @@ function dropHandler(e) {
     });
   }
 }
+
+function removeItem(itemToRemove){
+let items = JSON.parse(localStorage.getItem("kangbangItems"));
+var itemId = itemToRemove.parentElement.parentElement.id;
+if(itemId){
+var newItems = items.filter(item => item.id !== itemId);
+localStorage.setItem('kangbangItems', JSON.stringify(newItems));
+itemToRemove.parentElement.parentElement.remove();
+}else{
+  return;
+}
+}
+
+function setGreeting() {
+  const hour = new Date().getHours();
+  let greeting;
+
+  if (hour < 5)       greeting = "Burning the midnight oil";
+  else if (hour < 12)  greeting = "Good morning";
+  else if (hour < 17)  greeting = "Good afternoon";
+  else if (hour < 21)  greeting = "Good evening";
+  else                 greeting = "Working late";
+
+  const el = document.getElementById('bp-greeting');
+  if (el) el.textContent = `${greeting}!`;
+}
+
+setGreeting();
+
