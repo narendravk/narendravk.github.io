@@ -334,7 +334,7 @@ ul.collection li[draggable="true"]:active {
 }
 
 .modal .modal-content {
-  color: var(--bp-text);
+  color: var(--bp-amber);
 }
 
 .modal .modal-footer {
