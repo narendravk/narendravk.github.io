@@ -29,13 +29,18 @@ if (!localStorage.getItem("kangbangItems")) {
           <div class="valign-wrapper">
             <i class="material-icons left teal-text text-darken-2">drag_handle</i>
             <span>${item.text}</span>
-            <a href="#!" class="secondary-content red-text" onclick="removeItem(this)">
-            <i class="material-icons right">delete</i>
+          </div>
+          <div class="bp-eyebrow-date">🗓️${lapsedDays} days ago
+            <a href="" class="secondary-content" onclick="editNote(this)">
+              <i class="material-icons right" title="Add/Edit Note">edit_note</i>
+            </a>
+            <a href="" class="secondary-content red-text" onclick="removeItem(this)">
+              <i class="material-icons right" title="Delete this task">delete</i>
             </a>
           </div>
-          <div class="bp-eyebrow-date">🗓️${lapsedDays} days ago</div>
         `;
     listItem.setAttribute("id", item.id);
+    listItem.setAttribute("data-title", item.note);
     listItem.setAttribute("draggable", "true");
     listItem.classList.add("collection-item", "draggable");
     listItem.addEventListener("dragstart", dragstartHandler);
@@ -71,18 +76,23 @@ function addToList(e, listId) {
           <div class="valign-wrapper">
             <i class="material-icons left teal-text text-darken-2">drag_handle</i>
             <span>${text}</span>
-            <a href="#!" class="secondary-content red-text" onclick="removeItem(this)">
-            <i class="material-icons">delete</i>
+          </div>
+          <div class="bp-eyebrow-date">🗓️${lapsedDays} days ago
+            <a href="" class="secondary-content" onclick="editNote(this)">
+              <i class="material-icons right" title="Add/Edit Note">edit_note</i>
             </a>
-            </div>
-            <div class="bp-eyebrow-date">🗓️${lapsedDays} days ago</div>
+            <a href="" class="secondary-content red-text" onclick="removeItem(this)">
+              <i class="material-icons right" title="Delete this task">delete</i>
+            </a>
+          </div>
         `;
     var itemID = `${Date.now().valueOf().toString(36)}`;
     var itemDate = new Date();
     listItem.setAttribute("id", itemID);
+    listItem.setAttribute("data-title", "Created on:" + itemDate.toLocaleDateString());
     // Store the item in localStorage
     let items = JSON.parse(localStorage.getItem("kangbangItems"));
-    items.push({ id: itemID, text: text, status: listId, itemDate:itemDate });
+    items.push({ id: itemID, text: text, status: listId, itemDate:itemDate, note:'Created on:' + itemDate.toLocaleDateString() });
     localStorage.setItem("kangbangItems", JSON.stringify(items));
     listItem.setAttribute("draggable", "true");
     listItem.classList.add("collection-item", "draggable");
@@ -160,7 +170,7 @@ function sendViaWhatsApp() {
   }
 
   // build current page link with ?user=<name>
-  const url = new URL(window.location.href);
+  const url = new URL((window.location.protocol + "//" + window.location.host + "/kangbang"));
   url.searchParams.set('user', name);
   const shareLink = url.toString();
 
@@ -170,3 +180,18 @@ function sendViaWhatsApp() {
   window.open(waUrl, '_blank');
 }
 
+function editNote(selectedItem){
+  const note = prompt(message='Add / update the task details..',_default='Note:');
+  let items = JSON.parse(localStorage.getItem("kangbangItems"));
+  var itemId = selectedItem.parentElement.parentElement.id;
+  if(itemId){
+    var itemToEdit = (items.filter(item => item.id === itemId))[0];
+    var remainingItems = items.filter(item => item.id !== itemId);
+    itemToEdit.note = note;
+    remainingItems.push(itemToEdit);
+    localStorage.setItem('kangbangItems',JSON.stringify(remainingItems));
+    selectedItem.parentElement.parentElement.setAttribute("data-title", note);
+  }else{
+    return;
+  }
+}

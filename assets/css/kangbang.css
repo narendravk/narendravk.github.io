@@ -392,3 +392,36 @@ ul.collection li[draggable="true"]:active {
 .bp-footer .container p #bp-year {
   color: var(--bp-cyan);
 }
+
+li[data-title] {
+  position: relative;
+}
+
+li[data-title]::after {
+  content: attr(data-title);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(0%) translateY(0%);
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: var(--bp-font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--bp-amber);
+  background-color: var(--bp-surface-2);
+  border: 1px solid var(--bp-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+li[data-title]:hover::after {
+  opacity: 0.7;
+  transform: translateX(0%) translateY(0%);
+  font-style: italic;
+}
