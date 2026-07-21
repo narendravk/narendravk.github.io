@@ -44,6 +44,7 @@ nav.teal.darken-3 {
 nav .brand-logo {
   font-family: var(--bp-font-display);
   font-weight: 700;
+  font-size: 3vw;;
   letter-spacing: 0.02em;
   color: var(--bp-amber) !important;
   display: inline-flex;

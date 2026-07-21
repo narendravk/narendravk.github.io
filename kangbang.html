@@ -29,7 +29,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a class="nav-link active" target="_blank" href="https://pages.razorpay.com/buyacoffee">Buy A Coffee☕</a></li>
         <li><a href="/">About</a></li>
-        <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+        <li><a class="btn-small waves-effect waves-light teal white-text modal-trigger" href="#shareModal"><i class="material-icons left">share</i>Share</a></li>
       </ul>
     </div>
   </nav>
@@ -139,10 +139,39 @@
     <p>© <span id="bp-year"></span> Narendra Kashikar</p>
   </div>
 </footer>
+<!-- Share via WhatsApp Modal -->
+<div id="shareModal" class="modal">
+  <div class="modal-content">
+    <h4>Share Board</h4>
+    <form id="shareForm">
+      <div class="input-field">
+        <input style="color: antiquewhite;" type="text" id="share-name" required minlength="1" maxlength="25">
+        <label for="share-name">Your name</label>
+      </div>
+      <div class="input-field">
+        <input style="color: antiquewhite;" type="tel" id="share-whatsapp" placeholder="e.g. 919876543210" required maxlength="12" minlength="12" value="91" pattern="[6-9]{1}[0-9]{9}">
+        <label for="share-whatsapp">WhatsApp number (with country code, no + or spaces)</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="btn waves-effect waves-light teal modal-close" onclick="sendViaWhatsApp()">
+      <i class="material-icons left">chat</i>Send
+    </a>
+    <a style="color: antiquewhite;" href="#!" class="modal-close btn-flat">Cancel</a>
+  </div>
+</div>
+
+
 <script>document.getElementById('bp-year').textContent = new Date().getFullYear();</script>
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="assets/js/kangbang.js"></script>
-  <script src="assets/js/dragdroptouch.js"></script> 
+  <script src="assets/js/dragdroptouch.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+  M.Modal.init(document.querySelectorAll('.modal'));
+  });
+  </script>
 </body>
 </html>

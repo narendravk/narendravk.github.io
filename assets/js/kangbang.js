@@ -1,4 +1,19 @@
 //Set Up Local Storage
+if (!localStorage.getItem("kangUser")){
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  let userName;
+  if (urlParams.size > 0){
+    if (urlParams.has('user')){
+      userName = urlParams.get('user');
+    }else{
+      userName = 'User';
+    }
+  }else{
+  userName = prompt(message="Hi, welcome to your own Task Board! Would you like to customize it by providing your name?\nAll the data, including your tasks, is strictly stored in your browser for your privacy!",_default="User");
+}
+localStorage.setItem("kangUser",userName);
+}
 if (!localStorage.getItem("kangbangItems")) {
   localStorage.setItem("kangbangItems", JSON.stringify([]));
 } else {
@@ -122,16 +137,36 @@ itemToRemove.parentElement.parentElement.remove();
 function setGreeting() {
   const hour = new Date().getHours();
   let greeting;
-
+  let userName = localStorage.getItem("kangUser");
   if (hour < 5)       greeting = "Burning the midnight oil";
-  else if (hour < 12)  greeting = "Good morning";
-  else if (hour < 17)  greeting = "Good afternoon";
-  else if (hour < 21)  greeting = "Good evening";
-  else                 greeting = "Working late";
+  else if (hour < 12)  greeting = "Good morning, "+userName;
+  else if (hour < 17)  greeting = "Good afternoon "+userName;
+  else if (hour < 21)  greeting = "Good evening "+userName;
+  else                 greeting = "Working late "+userName;
 
   const el = document.getElementById('bp-greeting');
   if (el) el.textContent = `${greeting}!`;
 }
 
 setGreeting();
+
+function sendViaWhatsApp() {
+  const name = document.getElementById('share-name').value.trim();
+  const number = document.getElementById('share-whatsapp').value.trim();
+
+  if (!name || !number) {
+    alert('Please enter both your name and WhatsApp number.');
+    return;
+  }
+
+  // build current page link with ?user=<name>
+  const url = new URL(window.location.href);
+  url.searchParams.set('user', name);
+  const shareLink = url.toString();
+
+  const message = `Hi, I'm sharing this board with you: ${shareLink}`;
+  const waUrl = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
+  window.open(waUrl, '_blank');
+}
 
