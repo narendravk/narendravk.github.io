@@ -133,15 +133,20 @@ function dropHandler(e) {
 }
 
 function removeItem(itemToRemove){
-let items = JSON.parse(localStorage.getItem("kangbangItems"));
-var itemId = itemToRemove.parentElement.parentElement.id;
-if(itemId){
-var newItems = items.filter(item => item.id !== itemId);
-localStorage.setItem('kangbangItems', JSON.stringify(newItems));
-itemToRemove.parentElement.parentElement.remove();
-}else{
-  return;
-}
+  let removeItem = confirm("⚠️Warning: Are you really want to delete this task?");
+  if(removeItem){
+    let items = JSON.parse(localStorage.getItem("kangbangItems"));
+    var itemId = itemToRemove.parentElement.parentElement.id;
+    if(itemId){
+    var newItems = items.filter(item => item.id !== itemId);
+    localStorage.setItem('kangbangItems', JSON.stringify(newItems));
+    itemToRemove.parentElement.parentElement.remove();
+    }else{
+      return;
+    }
+    }else{
+      return;
+    }
 }
 
 function setGreeting() {
