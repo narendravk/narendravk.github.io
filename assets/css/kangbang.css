@@ -366,18 +366,6 @@ ul.collection li[draggable="true"]:active {
   .card .card-content.dropArea { min-height: 140px; }
 }
 
-@media only screen and (max-width: 992px) {
-  nav ul#nav-mobile.right.hide-on-med-and-down {
-    display: flex !important;
-    position: static;
-    height: auto;
-    flex-direction: column;
-    align-items: flex-end;
-    float: none;
-    padding: 0.5rem 0 1rem;
-  }
-}
-
 /* ---------- reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -436,4 +424,33 @@ li[data-title]:hover::after {
   opacity: 0.7;
   transform: translateX(0%) translateY(0%);
   font-style: italic;
+}
+
+/* ---------- mobile nav (sidenav) ---------- */
+
+.sidenav-trigger {
+  color: var(--bp-cyan) !important;
+}
+
+.sidenav-trigger i.material-icons {
+  font-size: 1.7rem;
+}
+
+.sidenav {
+  background-color: var(--bp-surface) !important;
+  border-right: 1px solid var(--bp-border);
+}
+
+.sidenav li a {
+  font-family: var(--bp-font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--bp-text-muted) !important;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.sidenav li a:hover {
+  color: var(--bp-cyan) !important;
+  background-color: rgba(34, 211, 238, 0.06);
 }

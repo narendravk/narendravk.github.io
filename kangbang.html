@@ -40,31 +40,55 @@
   </head>
   <body class="teal lighten-5">
     <!-- Navbar -->
-    <nav class="teal darken-3">
-      <div class="nav-wrapper container">
-        <a href="/kangbang" class="brand-logo">
-          <span class="bp-logo-mark">⌗</span>My Task Board
-        </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-            <a
-              class="nav-link active"
-              target="_blank"
-              href="https://pages.razorpay.com/buyacoffee"
-              >Buy A Coffee☕</a
-            >
-          </li>
-          <li><a href="/">About</a></li>
-          <li>
-            <a
-              class="btn-small waves-effect waves-light teal white-text modal-trigger"
-              href="#shareModal"
-              ><i class="material-icons left">share</i>Share</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
+<!-- Navbar -->
+<nav class="teal darken-3">
+  <div class="nav-wrapper container">
+    <a href="/kangbang" class="brand-logo">
+      <span class="bp-logo-mark">⌗</span>My Task Board
+    </a>
+    <a href="#" data-target="mobile-nav" class="sidenav-trigger hide-on-large-only">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+          <a
+          class="nav-link active"
+          target="_blank"
+          href="https://pages.razorpay.com/buyacoffee"
+          >Buy A Coffee☕</a
+        >
+      </li>
+      <li><a href="/">About</a></li>
+      <li>
+          <a
+          class="btn-small waves-effect waves-light teal white-text modal-trigger"
+          href="#shareModal"
+          ><i class="material-icons left">share</i>Share</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sidenav for mobile -->
+<ul class="sidenav" id="mobile-nav">
+  <li>
+      <a
+      class="nav-link active"
+      target="_blank"
+      href="https://pages.razorpay.com/buyacoffee"
+      >Buy A Coffee☕</a
+    >
+  </li>
+  <li><a href="/">About</a></li>
+  <li>
+      <a
+      class="btn-small waves-effect waves-light teal white-text modal-trigger"
+      href="#shareModal"
+      ><i class="material-icons left">share</i>Share</a
+    >
+  </li>
+</ul>
 
     <!-- Hero -->
     <div class="section center-align bp-hero">
@@ -243,6 +267,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         M.Modal.init(document.querySelectorAll(".modal"));
+        M.Sidenav.init(document.querySelectorAll(".sidenav"));
       });
     </script>
   </body>
